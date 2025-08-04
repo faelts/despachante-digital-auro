@@ -4,64 +4,119 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HelpCircle, CheckCircle } from "lucide-react";
 
 const FAQSection = () => {
   const faqs = [
     {
       question: "O que é um Documento Digital?",
-      answer: "Com os avanços da tecnologia, é cada vez mais comum carregarmos nossas informações e documentos em nossos smartphones, e pensando nisso foram criados o aplicativo \"Carteira Digital de Trânsito\" que substitui a CNH de papel, e o CRLV-e que nada mais é do que a versão digital do documento verdinho de licenciamento anual de porte obrigatório. Assim, logo após aprovado o seu pedido, você já pode baixar as versões digitais e utilizar o seu veículo normalmente, dispensando assim a espera da versão em papel."
+      answer: "Com os avanços da tecnologia, criamos o aplicativo \"Carteira Digital de Trânsito\" que substitui a CNH física, e o CRLV-e (documento digital de licenciamento). Após aprovação do pedido, você pode baixar imediatamente as versões digitais e utilizar seu veículo normalmente, sem aguardar a versão impressa."
     },
     {
       question: "Como fazer um documento online?",
-      answer: "É muito simples, através do nosso formulário você consegue informar seu documento ou veículo que tem interesse em ser atendido, e após preencher e enviar esses dados, um de nossos consultores entrará em contato para lhe auxiliar com o restante do processo, até você concluir o seu pedido e receber seu documento em casa."
+      answer: "É muito simples! Através do nosso atendimento especializado, você informa qual documento ou serviço deseja. Nossa equipe cuidará de todo o processo, desde a análise inicial até a entrega final, mantendo você informado em cada etapa."
     },
     {
       question: "Quais são as formas de pagamento?",
-      answer: "Todos os pagamentos podem ser efetuados por transferência bancária, boleto à vista ou em até 12x no cartão de crédito, como você preferir."
+      answer: "Oferecemos máxima flexibilidade: transferência bancária, boleto à vista com desconto, ou parcelamento em até 18x no cartão de crédito sem juros. Você escolhe a forma que melhor se adapta ao seu orçamento."
     },
     {
-      question: "Posso utilizar um cartão que não está em meu nome?",
-      answer: "Sim, você pode realizar o pedido com um cartão de um parente ou amigo se precisar, basta que os dados do responsável pelo pagamento sejam os mesmos do titular do cartão."
+      question: "Posso usar cartão de terceiros?",
+      answer: "Sim! Você pode utilizar cartão de familiares ou amigos, desde que os dados do responsável pelo pagamento sejam os mesmos do titular do cartão. Isso oferece mais flexibilidade para nossa clientela."
     },
     {
-      question: "Quais são os prazos para entrega dos meus documentos?",
-      answer: "Após a aprovação de seu pedido, nós efetuamos os pagamentos de todas as taxas e débitos em até 24 horas, e você já consegue utilizar o seu veículo normalmente. Além disso, seu CRLV Digital já estará disponível para download. Seu documento físico será entregue pelos correios no endereço que você escolher de 3 a 5 dias úteis, após a quitação pela nossa equipe."
+      question: "Quais são os prazos de entrega?",
+      answer: "Após aprovação, quitamos todas as taxas e débitos em até 24 horas, liberando imediatamente o uso do veículo e o CRLV Digital. O documento físico é entregue pelos Correios (frete grátis) em 3 a 5 dias úteis."
     },
     {
-      question: "Quanto tempo um pedido leva para ser aprovado?",
-      answer: "Os pedidos têm prazo de 48h úteis para serem aprovados para pagamentos no cartão de crédito, e de até 72h para compensação de pagamentos no boleto. Após aprovado, os pagamentos de seus débitos são feitos em até 24 horas."
+      question: "Tempo para aprovação do pedido?",
+      answer: "Pedidos com pagamento no cartão são aprovados em até 48h úteis. Para boleto, o prazo é de até 72h para compensação. Após aprovação, a quitação dos débitos ocorre em até 24 horas."
     },
     {
-      question: "Quanto tempo para conseguir baixa em meus débitos?",
-      answer: "Após a aprovação do seu pedido, seus débitos são quitados em até 24 horas pela nossa equipe, e logo em seguida seus débitos já constarão quitados nos órgãos governamentais."
+      question: "Quanto tempo para baixa dos débitos?",
+      answer: "Após aprovação do pedido, quitamos seus débitos em até 24 horas. A baixa nos órgãos governamentais é imediata, permitindo que você utilize seu veículo normalmente sem restrições."
     }
   ];
 
+  const benefits = [
+    "Aprovação em até 48h",
+    "Documento digital imediato", 
+    "Frete grátis via Correios",
+    "Parcelamento em até 18x"
+  ];
+
   return (
-    <section className="py-section bg-muted/30">
-      <div className="container mx-auto px-container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Perguntas Frequentes
+    <section className="section-padding bg-white">
+      <div className="container-custom">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-medium text-sm mb-6">
+            <HelpCircle className="mr-2 h-4 w-4" />
+            Dúvidas Frequentes
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+            Perguntas <span className="text-gradient">Frequentes</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Esclarecemos as principais dúvidas sobre nossos serviços
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+            Esclarecemos as principais dúvidas sobre nossos serviços e processos
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-border">
-                <AccordionTrigger className="text-left text-foreground hover:text-primary">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* FAQ Accordion */}
+          <div className="lg:col-span-2">
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="border border-neutral-200 rounded-xl px-6 py-2 bg-neutral-50 hover:bg-neutral-100 transition-colors"
+                >
+                  <AccordionTrigger className="text-left text-neutral-900 hover:text-primary font-semibold py-4 hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-neutral-600 pb-4 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          {/* Benefits Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="bg-gradient-primary rounded-3xl p-8 text-white sticky top-24">
+              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                <CheckCircle className="h-6 w-6 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4">
+                Nossos Diferenciais
+              </h3>
+              
+              <p className="text-primary-light mb-6">
+                Vantagens exclusivas que só o Mauro Despachante oferece
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-white mr-3 flex-shrink-0" />
+                    <span className="text-white">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4 mb-6">
+                <div className="text-2xl font-bold text-white mb-1">50+</div>
+                <div className="text-primary-light text-sm">Anos de experiência</div>
+              </div>
+              
+              <button className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-xl transition-colors">
+                Falar com Especialista
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
