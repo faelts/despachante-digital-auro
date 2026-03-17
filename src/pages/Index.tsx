@@ -12,13 +12,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <HeroSection />
-      <ProcessSection />
-      <ServicesSection />
-      <AboutSection />
-      <LocationsSection />
-      <FAQSection />
-      <CTASection />
+      {/* O padding-top (pt-32) compensa a altura do Header fixo */}
+      <main className="pt-28 md:pt-36">
+        <HeroSection />
+        <ProcessSection />
+        <ServicesSection />
+        <AboutSection />
+        <LocationsSection />
+        <FAQSection />
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );

@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/despachante-digital-auro/", // <<< Adicionada para GitHub Pages
+  base: "/despachante-digital-auro/",
   server: {
     host: "::",
     port: 8080,
