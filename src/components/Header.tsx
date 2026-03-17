@@ -44,15 +44,15 @@ const Header = () => {
       }`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           
-          {/* Logo com Fallback para GitHub Pages */}
+          {/* Logo com Caminho Corrigido para GitHub Pages */}
           <div className="flex items-center h-10 md:h-14">
             <img 
-              src={logoMauro} 
+              src="./src/components/logotipo-edit-branca-comprimida-maur-despachante.png" 
               alt="Mauro Despachante" 
               className="h-full w-auto object-contain transition-transform hover:scale-105"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "/despachante-digital-auro/src/components/logotipo-edit-branca-comprimida-maur-despachante.png";
+                target.src = logoMauro; // Fallback para a importação padrão se o path falhar
               }}
             />
           </div>
