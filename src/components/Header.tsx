@@ -2,9 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, Phone, MapPin, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Importação da logo na src/components
-import logoMauro from "./logotipo-edit-branca-comprimida-maur-despachante.png";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,16 +41,12 @@ const Header = () => {
       }`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           
-          {/* Logo com Caminho Corrigido para GitHub Pages */}
+          {/* Logo - Puxando direto da pasta PUBLIC */}
           <div className="flex items-center h-10 md:h-14">
             <img 
-              src="./src/components/logotipo-edit-branca-comprimida-maur-despachante.png" 
+              src="logotipo-edit-branca-comprimida-maur-despachante.png" 
               alt="Mauro Despachante" 
               className="h-full w-auto object-contain transition-transform hover:scale-105"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = logoMauro; // Fallback para a importação padrão se o path falhar
-              }}
             />
           </div>
 
