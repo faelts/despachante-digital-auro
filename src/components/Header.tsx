@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 w-full font-sans">
-      {/* Barra de Topo - Vermelho Mauro (Ajustada para ficar mais fina e elegante) */}
+      {/* Barra de Topo - Vermelho Mauro */}
       <div className={`bg-[#E11D48] text-white py-1.5 transition-all duration-300 ${isScrolled ? 'h-0 py-0 overflow-hidden opacity-0' : 'h-auto'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center text-[10px] md:text-[11px] font-bold uppercase tracking-[0.1em]">
           <div className="flex items-center gap-6">
@@ -44,22 +44,25 @@ const Header = () => {
       }`}>
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           
-          {/* Logo - Ajustada para não ficar colada no topo */}
+          {/* Logo com Fallback para GitHub Pages */}
           <div className="flex items-center h-10 md:h-14">
             <img 
               src={logoMauro} 
               alt="Mauro Despachante" 
               className="h-full w-auto object-contain transition-transform hover:scale-105"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "/despachante-digital-auro/src/components/logotipo-edit-branca-comprimida-maur-despachante.png";
+              }}
             />
           </div>
 
-          {/* Navegação - Mais espaçada e sem encavalar */}
+          {/* Navegação High-Ticket */}
           <nav className="hidden lg:flex items-center gap-10 text-[11px] font-black uppercase tracking-[0.15em] text-white">
             <a href="#home" className="hover:text-[#E11D48] transition-colors">Home</a>
             <a href="#servicos" className="hover:text-[#E11D48] transition-colors">Serviços</a>
             <a href="#sobre-nos" className="hover:text-[#E11D48] transition-colors">Sobre nós</a>
             
-            {/* Botão Corrigido (Padding e White-space) */}
             <Button 
               className="bg-[#E11D48] hover:bg-[#BE123C] text-white font-black px-8 py-6 rounded-none uppercase tracking-tighter shadow-xl whitespace-nowrap transition-all hover:translate-y-[-2px]"
               onClick={() => window.open(whatsappUrl, '_blank')}
@@ -74,7 +77,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Menu Mobile - Coerente com as cores novas */}
+        {/* Menu Mobile */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0F172A] border-t border-white/10 p-8 flex flex-col gap-6 shadow-2xl animate-in slide-in-from-top duration-300">
             <a href="#home" className="text-sm font-black uppercase text-white tracking-widest" onClick={() => setIsMenuOpen(false)}>Home</a>
